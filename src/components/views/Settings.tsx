@@ -12,10 +12,6 @@ export const Settings: React.FC = () => {
     updateSettings({ dateOfBirth: e.target.value });
   };
 
-  const handleGasUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateSettings({ gasSyncUrl: e.target.value });
-  };
-
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     updateSettings({ theme: e.target.value as 'light' | 'dark' | 'system' });
   };
@@ -25,7 +21,8 @@ export const Settings: React.FC = () => {
   };
 
   const handleSyncToGas = async () => {
-    if (!settings.gasSyncUrl) {
+    const gasUrl = import.meta.env.VITE_APPS_SCRIPT_URL;
+    if (!gasUrl) {
       setSyncStatus(t('configureGasFirst'));
       return;
     }
@@ -33,8 +30,9 @@ export const Settings: React.FC = () => {
     try {
       const payload = { logs, targets, settings };
       // Using standard fetch with no-cors or expecting standard CORS if properly setup in GAS
-      const response = await fetch(settings.gasSyncUrl, {
+      const response = await fetch(gasUrl, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8',
         },
@@ -118,17 +116,6 @@ export const Settings: React.FC = () => {
         <section className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
           <h3 className="text-lg font-medium mb-4">{t('backupSync')}</h3>
           <div className="space-y-4">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('gasWebhookUrl')}</label>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">{t('gasWebhookUrlDesc')}</p>
-              <input 
-                type="url"
-                placeholder="https://script.google.com/macros/s/.../exec"
-                value={settings.gasSyncUrl || ''}
-                onChange={handleGasUrlChange}
-                className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all"
-              />
-            </div>
             
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <button 
