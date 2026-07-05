@@ -1,0 +1,88 @@
+export default {
+  // Navigation
+  dashboard: 'Dashboard',
+  addLog: 'Add Log',
+  history: 'History',
+  targets: 'Targets',
+  settings: 'Settings',
+  
+  // Dashboard
+  portfolioOverview: 'Portfolio Overview',
+  portfolioOverviewDesc: 'Your personal investment tracker',
+  totalTarget: 'Total Target',
+  totalInvested: 'Total Invested (Cost)',
+  remainingToInvest: 'Remaining to Invest',
+  currentAllocation: 'Current Allocation',
+  noInvestmentsYet: 'No investments yet',
+  targetProgress: 'Target Progress',
+  upcomingTaxUnlocks: 'Upcoming Tax Unlocks',
+  noPendingTaxLocks: 'No pending tax locks found.',
+  
+  // Log Form
+  addInvestmentLog: 'Add Investment Log',
+  addInvestmentLogDesc: 'Record a new purchase or update',
+  date: 'Date',
+  fundAssetName: 'Fund / Asset Name',
+  targetCategory: 'Target Category',
+  wrapperType: 'Wrapper Type',
+  investedAmount: 'Invested Amount (Cost)',
+  currentValueOptional: 'Current Value (Optional)',
+  leaveBlankToUseCost: 'Leave blank to use cost',
+  notesOptional: 'Notes (Optional)',
+  additionalDetails: 'Additional details...',
+  saveInvestmentLog: 'Save Investment Log',
+  
+  // History
+  historyHoldings: 'History & Holdings',
+  historyHoldingsDesc: 'View and manage your investment records',
+  noInvestmentLogsFound: 'No investment logs found.',
+  investedCost: 'Invested (Cost)',
+  currentValue: 'Current Value',
+  confirmRevertLog: 'Are you sure you want to revert (delete) this log?',
+  locked: '🔒 ',
+  unlocked: '✅ ',
+  
+  // Targets
+  targetAllocation: 'Target Allocation',
+  targetAllocationDesc: 'Edit your default investment goals',
+  totalPlannedPortfolioSize: 'Total Planned Portfolio Size',
+  saveTargets: 'Save Targets',
+  targetsUpdatedSuccessfully: 'Targets updated successfully',
+  
+  // Settings
+  configurePreferences: 'Configure your tracker preferences',
+  personalDetails: 'Personal Details',
+  dateOfBirth: 'Date of Birth',
+  dobRequiredForRmf: 'Required for accurate RMF tax unlock calculations (age 55 condition).',
+  appearance: 'Appearance',
+  theme: 'Theme',
+  light: 'Light',
+  dark: 'Dark',
+  systemDefault: 'System Default',
+  language: 'Language',
+  english: 'English',
+  thai: 'Thai',
+  backupSync: 'Backup & Sync',
+  gasWebhookUrl: 'Google Apps Script Webhook URL',
+  gasWebhookUrlDesc: 'Create a GAS script that receives POST data and writes to a Google Sheet/Drive, then paste the URL here to enable cloud sync.',
+  syncToGoogleDrive: 'Sync to Google Drive',
+  exportJsonBackup: 'Export JSON Backup',
+  syncing: 'Syncing...',
+  syncComplete: 'Sync complete!',
+  syncFailed: 'Sync failed. Please check the URL and CORS settings in your GAS Web App.',
+  configureGasFirst: 'Please configure the Google Apps Script Web App URL first.',
+  
+  // Tax Engine
+  noDateSpecified: 'No date specified',
+  canWithdraw: 'Can withdraw:',
+  mustEnterDob: 'Must enter DOB (go to Settings)',
+  noLockConditions: 'No lock conditions',
+  
+  // Categories
+  RMF_FOREIGN_EQUITY: 'RMF Foreign Equity',
+  GLOBAL_EQUITY: 'Global Equity Fund',
+  THAI_ESG_EQUITY: 'ThaiESG Equity',
+  THAI_ESG_FIXED_INCOME: 'ThaiESG Fixed Income/Mixed',
+  GOLD: 'Gold',
+  CASH: 'High Interest Deposit/Cash',
+};

@@ -1,0 +1,6 @@
+{
+  "name": "Personal Investment Portfolio Tracker",
+  "description": "Local-first portfolio tracker with Thai tax unlock calculations, glassmorphism UI, and GAS sync.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
