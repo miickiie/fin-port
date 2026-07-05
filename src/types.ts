@@ -31,6 +31,7 @@ export interface InvestmentLog {
 
 export interface PortfolioSettings {
   dateOfBirth?: string; // ISO date string (YYYY-MM-DD)
+  gasSyncUrl?: string;
   theme: 'light' | 'dark' | 'system';
   language: 'en' | 'th';
 }

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { usePortfolio } from '../../store/PortfolioContext';
 import { useTranslation } from '../../locales/useTranslation';
+import { Trash2 } from 'lucide-react';
 
 export const Settings: React.FC = () => {
   const { settings, updateSettings, logs, targets } = usePortfolio();
   const { t } = useTranslation();
   
   const [syncStatus, setSyncStatus] = useState<string>('');
+  const [tempGasUrl, setTempGasUrl] = useState<string>('');
 
   const handleDobChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateSettings({ dateOfBirth: e.target.value });
@@ -20,8 +22,19 @@ export const Settings: React.FC = () => {
     updateSettings({ language: e.target.value as 'en' | 'th' });
   };
 
+  const handleSaveGasUrl = () => {
+    if (tempGasUrl.trim()) {
+      updateSettings({ gasSyncUrl: tempGasUrl.trim() });
+      setTempGasUrl('');
+    }
+  };
+
+  const handleClearGasUrl = () => {
+    updateSettings({ gasSyncUrl: undefined });
+  };
+
   const handleSyncToGas = async () => {
-    const gasUrl = import.meta.env.VITE_APPS_SCRIPT_URL;
+    const gasUrl = settings.gasSyncUrl;
     if (!gasUrl) {
       setSyncStatus(t('configureGasFirst'));
       return;
@@ -117,10 +130,50 @@ export const Settings: React.FC = () => {
           <h3 className="text-lg font-medium mb-4">{t('backupSync')}</h3>
           <div className="space-y-4">
             
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('gasWebhookUrl')}</label>
+              
+              {!settings.gasSyncUrl ? (
+                <>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">{t('gasWebhookUrlDesc')}</p>
+                  <div className="flex gap-2">
+                    <input 
+                      type="url"
+                      placeholder="https://script.google.com/macros/s/.../exec"
+                      value={tempGasUrl}
+                      onChange={(e) => setTempGasUrl(e.target.value)}
+                      className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all"
+                    />
+                    <button 
+                      onClick={handleSaveGasUrl}
+                      disabled={!tempGasUrl.trim()}
+                      className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-colors whitespace-nowrap"
+                    >
+                      {t('save')}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className="flex items-center justify-between bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5">
+                  <span className="text-emerald-600 dark:text-emerald-400 font-medium text-sm flex items-center gap-2">
+                    ✅ {t('webhookUrlConfigured')}
+                  </span>
+                  <button 
+                    onClick={handleClearGasUrl}
+                    className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                    title={t('clearWebhookUrl')}
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <button 
                 onClick={handleSyncToGas}
-                className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-colors"
+                disabled={!settings.gasSyncUrl}
+                className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-colors"
               >
                 {t('syncToGoogleDrive')}
               </button>

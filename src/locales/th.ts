@@ -71,6 +71,9 @@ export default {
   syncComplete: 'ซิงค์ข้อมูลสำเร็จ!',
   syncFailed: 'ซิงค์ล้มเหลว โปรดตรวจสอบ URL และการตั้งค่า CORS ในเว็บแอป GAS ของคุณ',
   configureGasFirst: 'โปรดกำหนดค่า URL เว็บแอป Google Apps Script ก่อน',
+  clearWebhookUrl: 'ลบ URL เว็บฮุค',
+  webhookUrlConfigured: 'กำหนดค่า URL เว็บฮุคแล้วและบันทึกไว้ในอุปกรณ์',
+  save: 'บันทึก',
   
   // Tax Engine
   noDateSpecified: 'ไม่ระบุวันที่ลงทุน',

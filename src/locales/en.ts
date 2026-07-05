@@ -71,6 +71,9 @@ export default {
   syncComplete: 'Sync complete!',
   syncFailed: 'Sync failed. Please check the URL and CORS settings in your GAS Web App.',
   configureGasFirst: 'Please configure the Google Apps Script Web App URL first.',
+  clearWebhookUrl: 'Delete Webhook URL',
+  webhookUrlConfigured: 'Webhook URL is configured and saved.',
+  save: 'Save',
   
   // Tax Engine
   noDateSpecified: 'No date specified',
