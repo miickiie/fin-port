@@ -3,7 +3,11 @@ import { usePortfolio } from '../../store/PortfolioContext';
 import { useTranslation } from '../../locales/useTranslation';
 import { Trash2 } from 'lucide-react';
 
-export const Settings: React.FC = () => {
+interface SettingsProps {
+  onVibe: () => void;
+}
+
+export const Settings: React.FC<SettingsProps> = ({ onVibe }) => {
   const { settings, updateSettings, logs, targets } = usePortfolio();
   const { t } = useTranslation();
   
@@ -194,6 +198,17 @@ export const Settings: React.FC = () => {
         </section>
 
       </div>
+
+      <footer className="pt-2 text-center">
+        <button
+          type="button"
+          onClick={onVibe}
+          className="vibe-credit inline-flex min-h-9 items-center justify-center rounded-full px-3 text-xs font-medium text-slate-500 transition-colors hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent dark:text-slate-400 dark:hover:text-blue-300"
+          aria-label="Vibe with love by Miickiie"
+        >
+          Vibe with <span aria-hidden="true" className="mx-1">❤️</span> by Miickiie
+        </button>
+      </footer>
     </div>
   );
 };

@@ -36,3 +36,186 @@ body {
     radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.3) 0px, transparent 40%);
   background-attachment: fixed;
 }
+
+.vibe-credit {
+  touch-action: manipulation;
+}
+
+.app-vibe-shake {
+  animation: app-vibe-shake 720ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform-origin: center center;
+}
+
+.vibe-effect-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.vibe-effect-layer::before,
+.vibe-effect-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vibe-effect-layer::before {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.95), transparent 18rem),
+    radial-gradient(circle at 42% 50%, rgba(251, 191, 36, 0.24), transparent 22rem),
+    radial-gradient(circle at 58% 52%, rgba(56, 189, 248, 0.2), transparent 24rem);
+  animation: vibe-screen-flash 820ms ease-out both;
+  mix-blend-mode: screen;
+}
+
+.vibe-effect-layer::after {
+  background:
+    conic-gradient(
+      from 18deg at 50% 50%,
+      transparent 0deg,
+      rgba(255, 255, 255, 0.36) 12deg,
+      transparent 24deg,
+      transparent 40deg,
+      rgba(34, 211, 238, 0.25) 52deg,
+      transparent 68deg,
+      transparent 98deg,
+      rgba(244, 114, 182, 0.26) 114deg,
+      transparent 130deg,
+      transparent 168deg,
+      rgba(250, 204, 21, 0.26) 184deg,
+      transparent 202deg,
+      transparent 248deg,
+      rgba(129, 140, 248, 0.26) 264deg,
+      transparent 284deg,
+      transparent 360deg
+    );
+  animation: vibe-rays 900ms ease-out both;
+  mix-blend-mode: screen;
+}
+
+.vibe-confetti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--confetti-width, 0.7rem);
+  height: var(--confetti-height, 0.28rem);
+  border-radius: var(--confetti-radius, 0.16rem);
+  background: var(--confetti-color, #38bdf8);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--confetti-color, #38bdf8) 40%, transparent);
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  animation: vibe-confetti-burst 980ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
+  animation-delay: var(--confetti-delay, 0ms);
+}
+
+.vibe-confetti:nth-child(1) { --confetti-x: -43vw; --confetti-y: -42vh; --confetti-rotate: -240deg; --confetti-color: #f43f5e; --confetti-delay: 0ms; }
+.vibe-confetti:nth-child(2) { --confetti-x: -31vw; --confetti-y: -50vh; --confetti-rotate: 180deg; --confetti-color: #f59e0b; --confetti-delay: 20ms; --confetti-height: 0.55rem; --confetti-radius: 50%; }
+.vibe-confetti:nth-child(3) { --confetti-x: -16vw; --confetti-y: -45vh; --confetti-rotate: 260deg; --confetti-color: #22c55e; --confetti-delay: 45ms; }
+.vibe-confetti:nth-child(4) { --confetti-x: -3vw; --confetti-y: -51vh; --confetti-rotate: -160deg; --confetti-color: #38bdf8; --confetti-delay: 10ms; }
+.vibe-confetti:nth-child(5) { --confetti-x: 13vw; --confetti-y: -47vh; --confetti-rotate: 210deg; --confetti-color: #a78bfa; --confetti-delay: 35ms; --confetti-height: 0.55rem; --confetti-radius: 50%; }
+.vibe-confetti:nth-child(6) { --confetti-x: 29vw; --confetti-y: -43vh; --confetti-rotate: -260deg; --confetti-color: #fb7185; --confetti-delay: 60ms; }
+.vibe-confetti:nth-child(7) { --confetti-x: 43vw; --confetti-y: -35vh; --confetti-rotate: 230deg; --confetti-color: #facc15; --confetti-delay: 30ms; }
+.vibe-confetti:nth-child(8) { --confetti-x: -48vw; --confetti-y: -18vh; --confetti-rotate: 170deg; --confetti-color: #06b6d4; --confetti-delay: 65ms; --confetti-width: 0.5rem; --confetti-height: 0.5rem; --confetti-radius: 0.08rem; }
+.vibe-confetti:nth-child(9) { --confetti-x: -34vw; --confetti-y: -22vh; --confetti-rotate: -190deg; --confetti-color: #84cc16; --confetti-delay: 90ms; }
+.vibe-confetti:nth-child(10) { --confetti-x: -19vw; --confetti-y: -28vh; --confetti-rotate: 310deg; --confetti-color: #e879f9; --confetti-delay: 15ms; }
+.vibe-confetti:nth-child(11) { --confetti-x: 0vw; --confetti-y: -32vh; --confetti-rotate: -280deg; --confetti-color: #fb923c; --confetti-delay: 80ms; --confetti-width: 0.5rem; --confetti-height: 0.5rem; --confetti-radius: 50%; }
+.vibe-confetti:nth-child(12) { --confetti-x: 18vw; --confetti-y: -26vh; --confetti-rotate: 250deg; --confetti-color: #2dd4bf; --confetti-delay: 50ms; }
+.vibe-confetti:nth-child(13) { --confetti-x: 36vw; --confetti-y: -20vh; --confetti-rotate: -210deg; --confetti-color: #60a5fa; --confetti-delay: 100ms; }
+.vibe-confetti:nth-child(14) { --confetti-x: 49vw; --confetti-y: -8vh; --confetti-rotate: 150deg; --confetti-color: #f472b6; --confetti-delay: 70ms; }
+.vibe-confetti:nth-child(15) { --confetti-x: -45vw; --confetti-y: 6vh; --confetti-rotate: -330deg; --confetti-color: #fde047; --confetti-delay: 55ms; }
+.vibe-confetti:nth-child(16) { --confetti-x: -29vw; --confetti-y: 2vh; --confetti-rotate: 190deg; --confetti-color: #34d399; --confetti-delay: 115ms; }
+.vibe-confetti:nth-child(17) { --confetti-x: -12vw; --confetti-y: 12vh; --confetti-rotate: -240deg; --confetti-color: #818cf8; --confetti-delay: 85ms; --confetti-height: 0.55rem; --confetti-radius: 50%; }
+.vibe-confetti:nth-child(18) { --confetti-x: 8vw; --confetti-y: 10vh; --confetti-rotate: 210deg; --confetti-color: #f97316; --confetti-delay: 125ms; }
+.vibe-confetti:nth-child(19) { --confetti-x: 24vw; --confetti-y: 4vh; --confetti-rotate: -180deg; --confetti-color: #14b8a6; --confetti-delay: 95ms; --confetti-width: 0.5rem; --confetti-height: 0.5rem; --confetti-radius: 0.08rem; }
+.vibe-confetti:nth-child(20) { --confetti-x: 42vw; --confetti-y: 12vh; --confetti-rotate: 280deg; --confetti-color: #f43f5e; --confetti-delay: 40ms; }
+.vibe-confetti:nth-child(21) { --confetti-x: -39vw; --confetti-y: 31vh; --confetti-rotate: 220deg; --confetti-color: #0ea5e9; --confetti-delay: 100ms; }
+.vibe-confetti:nth-child(22) { --confetti-x: -21vw; --confetti-y: 38vh; --confetti-rotate: -260deg; --confetti-color: #bef264; --confetti-delay: 135ms; }
+.vibe-confetti:nth-child(23) { --confetti-x: -3vw; --confetti-y: 43vh; --confetti-rotate: 300deg; --confetti-color: #c084fc; --confetti-delay: 75ms; }
+.vibe-confetti:nth-child(24) { --confetti-x: 16vw; --confetti-y: 37vh; --confetti-rotate: -230deg; --confetti-color: #fbbf24; --confetti-delay: 110ms; --confetti-height: 0.55rem; --confetti-radius: 50%; }
+.vibe-confetti:nth-child(25) { --confetti-x: 33vw; --confetti-y: 32vh; --confetti-rotate: 260deg; --confetti-color: #4ade80; --confetti-delay: 145ms; }
+.vibe-confetti:nth-child(26) { --confetti-x: 48vw; --confetti-y: 28vh; --confetti-rotate: -200deg; --confetti-color: #f0abfc; --confetti-delay: 120ms; }
+.vibe-confetti:nth-child(27) { --confetti-x: -8vw; --confetti-y: 0vh; --confetti-rotate: 360deg; --confetti-color: #38bdf8; --confetti-delay: 25ms; --confetti-width: 0.45rem; --confetti-height: 0.45rem; --confetti-radius: 50%; }
+.vibe-confetti:nth-child(28) { --confetti-x: 7vw; --confetti-y: -5vh; --confetti-rotate: -360deg; --confetti-color: #fb7185; --confetti-delay: 55ms; --confetti-width: 0.45rem; --confetti-height: 0.45rem; --confetti-radius: 50%; }
+
+@keyframes app-vibe-shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-4px, 1px, 0) rotate(-0.35deg);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translate3d(4px, -1px, 0) rotate(0.35deg);
+  }
+}
+
+@keyframes vibe-screen-flash {
+  0% {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.22);
+  }
+}
+
+@keyframes vibe-rays {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-10deg);
+  }
+  24% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) rotate(20deg);
+  }
+}
+
+@keyframes vibe-confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.4) rotate(0deg);
+  }
+  14% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(
+        calc(-50% + var(--confetti-x)),
+        calc(-50% + var(--confetti-y)),
+        0
+      )
+      scale(1)
+      rotate(var(--confetti-rotate));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-vibe-shake {
+    animation: none;
+  }
+
+  .vibe-effect-layer::before,
+  .vibe-effect-layer::after {
+    animation-duration: 240ms;
+  }
+
+  .vibe-confetti {
+    animation-duration: 1ms;
+  }
+}
