@@ -74,6 +74,21 @@ export default {
   clearWebhookUrl: 'Delete Webhook URL',
   webhookUrlConfigured: 'Webhook URL is configured and saved.',
   save: 'Save',
+
+  // PWA
+  pwaInstallTitle: 'Install FinPort',
+  pwaInstallDescription: 'Keep your portfolio close at hand and available offline.',
+  pwaInstallAction: 'Install',
+  pwaInstallDismiss: 'Not now',
+  pwaInstalling: 'Installing...',
+  pwaIosInstallDescription: 'In Safari, tap Share, then Add to Home Screen.',
+  pwaMacosInstallDescription: 'In Safari, choose File, then Add to Dock.',
+  pwaGotIt: 'Got it',
+  pwaUpdateTitle: 'FinPort update ready',
+  pwaUpdateDescription: 'Refresh to load the latest version and remove old app files.',
+  pwaRefreshAction: 'Refresh now',
+  pwaLater: 'Later',
+  pwaRefreshing: 'Refreshing...',
   
   // Tax Engine
   noDateSpecified: 'No date specified',

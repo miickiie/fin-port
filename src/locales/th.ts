@@ -74,6 +74,21 @@ export default {
   clearWebhookUrl: 'ลบ URL เว็บฮุค',
   webhookUrlConfigured: 'กำหนดค่า URL เว็บฮุคแล้วและบันทึกไว้ในอุปกรณ์',
   save: 'บันทึก',
+
+  // PWA
+  pwaInstallTitle: 'ติดตั้ง FinPort',
+  pwaInstallDescription: 'เข้าถึงพอร์ตได้รวดเร็วและใช้งานต่อได้เมื่อออฟไลน์',
+  pwaInstallAction: 'ติดตั้ง',
+  pwaInstallDismiss: 'ไว้ภายหลัง',
+  pwaInstalling: 'กำลังติดตั้ง...',
+  pwaIosInstallDescription: 'ใน Safari ให้แตะ แชร์ แล้วเลือก เพิ่มไปยังหน้าจอโฮม',
+  pwaMacosInstallDescription: 'ใน Safari ให้เลือก ไฟล์ แล้วเลือก เพิ่มไปยัง Dock',
+  pwaGotIt: 'เข้าใจแล้ว',
+  pwaUpdateTitle: 'มี FinPort เวอร์ชันใหม่',
+  pwaUpdateDescription: 'รีเฟรชเพื่อใช้เวอร์ชันล่าสุดและล้างไฟล์แอปเก่า',
+  pwaRefreshAction: 'รีเฟรชตอนนี้',
+  pwaLater: 'ไว้ภายหลัง',
+  pwaRefreshing: 'กำลังรีเฟรช...',
   
   // Tax Engine
   noDateSpecified: 'ไม่ระบุวันที่ลงทุน',

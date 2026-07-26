@@ -39,43 +39,43 @@ export const LogForm: React.FC<LogFormProps> = ({ onComplete }) => {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      <header className="mb-8">
-        <h2 className="text-3xl font-light tracking-tight mb-2">{t('addInvestmentLog')}</h2>
-        <p className="text-slate-500 dark:text-slate-400">{t('addInvestmentLogDesc')}</p>
+      <header className="view-header">
+        <h2 className="view-title">{t('addInvestmentLog')}</h2>
+        <p className="view-description">{t('addInvestmentLogDesc')}</p>
       </header>
 
-      <form onSubmit={handleSubmit} className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl p-6 md:p-8 border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] space-y-5">
+      <form onSubmit={handleSubmit} className="glass-panel glass-panel-roomy space-y-5">
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('date')}</label>
+            <label className="field-label">{t('date')}</label>
             <input 
               type="date" 
               required
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all"
+              className="field-control"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('fundAssetName')}</label>
+            <label className="field-label">{t('fundAssetName')}</label>
             <input 
               type="text" 
               required
               placeholder="e.g. K-CHANGE-A"
               value={fundName}
               onChange={(e) => setFundName(e.target.value)}
-              className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all"
+              className="field-control"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('targetCategory')}</label>
+            <label className="field-label">{t('targetCategory')}</label>
             <select 
               value={category}
               onChange={(e) => setCategory(e.target.value as PlanCategory)}
-              className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all"
+              className="field-control"
             >
               {(['RMF_FOREIGN_EQUITY', 'GLOBAL_EQUITY', 'THAI_ESG_EQUITY', 'THAI_ESG_FIXED_INCOME', 'GOLD', 'CASH'] as const).map(key => (
                 <option key={key} value={key}>{t(key as any)}</option>
@@ -84,11 +84,11 @@ export const LogForm: React.FC<LogFormProps> = ({ onComplete }) => {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('wrapperType')}</label>
+            <label className="field-label">{t('wrapperType')}</label>
             <select 
               value={wrapperType}
               onChange={(e) => setWrapperType(e.target.value as WrapperType)}
-              className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all"
+              className="field-control"
             >
               {WRAPPER_TYPES.map(type => (
                 <option key={type} value={type}>{type}</option>
@@ -97,7 +97,7 @@ export const LogForm: React.FC<LogFormProps> = ({ onComplete }) => {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('investedAmount')}</label>
+            <label className="field-label">{t('investedAmount')}</label>
             <input 
               type="number" 
               required
@@ -106,12 +106,12 @@ export const LogForm: React.FC<LogFormProps> = ({ onComplete }) => {
               placeholder="0.00"
               value={investedAmount}
               onChange={(e) => setInvestedAmount(e.target.value)}
-              className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all"
+              className="field-control"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('currentValueOptional')}</label>
+            <label className="field-label">{t('currentValueOptional')}</label>
             <input 
               type="number" 
               min="0"
@@ -119,26 +119,26 @@ export const LogForm: React.FC<LogFormProps> = ({ onComplete }) => {
               placeholder={t('leaveBlankToUseCost')}
               value={currentValue}
               onChange={(e) => setCurrentValue(e.target.value)}
-              className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all"
+              className="field-control"
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('notesOptional')}</label>
+          <label className="field-label">{t('notesOptional')}</label>
           <textarea 
             rows={3}
             placeholder={t('additionalDetails')}
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            className="w-full bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border border-white/50 dark:border-slate-800/50 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:bg-white/80 dark:focus:bg-slate-900/80 outline-none transition-all resize-none"
+            className="field-control resize-none"
           />
         </div>
 
         <div className="pt-4 flex justify-end">
           <button 
             type="submit"
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-colors w-full md:w-auto"
+            className="btn btn-primary w-full md:w-auto"
           >
             {t('saveInvestmentLog')}
           </button>

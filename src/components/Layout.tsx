@@ -31,11 +31,17 @@ export const Layout: React.FC<LayoutProps> = ({
 
   return (
     <>
-      <div className={`min-h-screen bg-transparent text-slate-900 dark:text-slate-100 flex flex-col md:flex-row font-sans ${isVibing ? 'app-vibe-shake' : ''}`}>
+      <div className={`app-shell ${isVibing ? 'app-vibe-shake' : ''}`}>
         {/* Desktop Sidebar */}
-        <aside className="hidden md:flex flex-col w-64 border-r border-white/40 dark:border-slate-800/50 bg-white/30 dark:bg-slate-900/30 backdrop-blur-2xl">
-          <div className="p-6">
-            <h1 className="text-xl font-semibold tracking-tight">FinPort</h1>
+        <aside className="nav-rail">
+          <div className="app-brand app-brand-desktop">
+            <img
+              src={`${import.meta.env.BASE_URL}favicon.svg`}
+              alt=""
+              className="app-brand-logo"
+              aria-hidden="true"
+            />
+            <h1 className="app-brand-name">FinPort</h1>
           </div>
           <nav className="flex-1 px-4 space-y-2">
             {tabs.map((tab) => {
@@ -44,11 +50,8 @@ export const Layout: React.FC<LayoutProps> = ({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all ${
-                    activeTab === tab.id
-                      ? 'bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium'
-                      : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400'
-                  }`}
+                  className={`nav-item ${activeTab === tab.id ? 'nav-item-active' : ''}`}
+                  aria-current={activeTab === tab.id ? 'page' : undefined}
                 >
                   <Icon size={20} />
                   <span>{t(tab.label)}</span>
@@ -59,14 +62,23 @@ export const Layout: React.FC<LayoutProps> = ({
         </aside>
 
         {/* Main Content Area */}
-        <main className="flex-1 relative overflow-y-auto pb-24 md:pb-0 h-screen">
-          <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        <main className="app-main">
+          <div className="app-brand app-brand-mobile">
+            <img
+              src={`${import.meta.env.BASE_URL}favicon.svg`}
+              alt=""
+              className="app-brand-logo"
+              aria-hidden="true"
+            />
+            <span className="app-brand-name">FinPort</span>
+          </div>
+          <div className="app-content">
             {children}
           </div>
         </main>
 
         {/* Mobile Bottom Navigation */}
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 border-t border-white/40 dark:border-slate-800/50 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl pb-safe z-50 shadow-[0_-8px_32px_0_rgba(0,0,0,0.05)]">
+        <nav className="mobile-nav md:hidden">
           <div className="flex justify-around items-center h-16">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -74,14 +86,11 @@ export const Layout: React.FC<LayoutProps> = ({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex flex-col items-center justify-center w-full h-full space-y-1 ${
-                    activeTab === tab.id
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
-                  }`}
+                  className={`mobile-nav-item ${activeTab === tab.id ? 'mobile-nav-item-active' : ''}`}
+                  aria-current={activeTab === tab.id ? 'page' : undefined}
                 >
                   <Icon size={20} className={activeTab === tab.id ? 'stroke-[2.5px]' : ''} />
-                  <span className="text-[10px] font-medium">{t(tab.label)}</span>
+                  <span className="mobile-nav-label">{t(tab.label)}</span>
                 </button>
               );
             })}

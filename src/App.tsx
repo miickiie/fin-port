@@ -6,6 +6,7 @@ import { LogForm } from './components/views/LogForm';
 import { Holdings } from './components/views/Holdings';
 import { AllocationEditor } from './components/views/AllocationEditor';
 import { Settings } from './components/views/Settings';
+import { PwaPrompt } from './components/PwaPrompt';
 
 const VIBE_DURATION_MS = 1100;
 
@@ -43,7 +44,7 @@ function AppContent() {
       isVibing={isVibing}
       vibeRun={vibeRun}
     >
-      <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both">
+      <div className="tab-transition">
         {activeTab === 'dashboard' && <Dashboard />}
         {activeTab === 'log' && <LogForm onComplete={() => setActiveTab('dashboard')} />}
         {activeTab === 'holdings' && <Holdings />}
@@ -58,6 +59,7 @@ export default function App() {
   return (
     <PortfolioProvider>
       <AppContent />
+      <PwaPrompt />
     </PortfolioProvider>
   );
 }

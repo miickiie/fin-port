@@ -11,14 +11,14 @@ export const Holdings: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <header className="mb-8">
-        <h2 className="text-3xl font-light tracking-tight mb-2">{t('historyHoldings')}</h2>
-        <p className="text-slate-500 dark:text-slate-400">{t('historyHoldingsDesc')}</p>
+      <header className="view-header">
+        <h2 className="view-title">{t('historyHoldings')}</h2>
+        <p className="view-description">{t('historyHoldingsDesc')}</p>
       </header>
 
       {logs.length === 0 ? (
-        <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl p-12 border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] text-center">
-          <p className="text-slate-500 dark:text-slate-400">{t('noInvestmentLogsFound')}</p>
+        <div className="empty-panel">
+          <p className="text-slate-600 dark:text-slate-300">{t('noInvestmentLogsFound')}</p>
         </div>
       ) : (
         <div className="space-y-4">
@@ -30,16 +30,16 @@ export const Holdings: React.FC = () => {
             return (
               <div 
                 key={log.id} 
-                className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl p-5 border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:bg-white/50 dark:hover:bg-slate-900/50"
+                className="glass-panel glass-panel-compact glass-panel-interactive flex flex-col md:flex-row md:items-center justify-between gap-4"
               >
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-1">
                     <h4 className="font-semibold text-lg">{log.fundName}</h4>
-                    <span className="px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                    <span className="status-chip">
                       {log.wrapperType}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-2">
                     {format(parseISO(log.date), 'dd MMM yyyy')} • {t(log.category as any)}
                   </p>
                   
@@ -51,14 +51,14 @@ export const Holdings: React.FC = () => {
                   )}
                 </div>
                 
-                <div className="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 border-slate-100 dark:border-slate-800 pt-4 md:pt-0">
+                <div className="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 border-slate-200/80 dark:border-slate-800/80 pt-4 md:pt-0">
                   <div className="text-left md:text-right">
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{t('investedCost')}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">{t('investedCost')}</p>
                     <p className="font-medium">฿{log.investedAmount.toLocaleString()}</p>
                   </div>
                   {(log.currentValue !== undefined && log.currentValue > 0) && (
                     <div className="text-left md:text-right hidden sm:block">
-                      <p className="text-sm text-slate-500 dark:text-slate-400">{t('currentValue')}</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-300">{t('currentValue')}</p>
                       <p className="font-medium text-blue-600 dark:text-blue-400">฿{log.currentValue.toLocaleString()}</p>
                     </div>
                   )}
@@ -68,8 +68,9 @@ export const Holdings: React.FC = () => {
                         deleteLog(log.id);
                       }
                     }}
-                    className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors"
+                    className="icon-btn icon-btn-danger"
                     title="Revert / Delete"
+                    aria-label="Revert / Delete"
                   >
                     <Trash2 size={18} />
                   </button>

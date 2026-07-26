@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">FinPort favicon</title>
+  <desc id="desc">A rounded portfolio console icon with allocation segments and a local-first lock mark.</desc>
+  <defs>
+    <linearGradient id="tile" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="0.56" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#020617" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="64" height="64" rx="16" fill="#0f172a"/>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#tile)"/>
+  <path d="M14 47V20c0-3.3 2.7-6 6-6h27" fill="none" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+
+  <g filter="url(#soft-shadow)">
+    <circle cx="35" cy="33" r="16" fill="none" stroke="#dbeafe" stroke-width="7" opacity="0.5"/>
+    <path d="M35 17a16 16 0 0 1 14.8 10" fill="none" stroke="#10b981" stroke-width="7" stroke-linecap="round"/>
+    <path d="M49.8 27A16 16 0 0 1 42 48.2" fill="none" stroke="#f59e0b" stroke-width="7" stroke-linecap="round"/>
+    <path d="M42 48.2A16 16 0 0 1 19.4 38" fill="none" stroke="#8b5cf6" stroke-width="7" stroke-linecap="round"/>
+    <path d="M19.4 38A16 16 0 0 1 35 17" fill="none" stroke="#3b82f6" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <rect x="29" y="28" width="13" height="11" rx="3" fill="#f8fafc"/>
+  <path d="M32 28v-2.5a3.5 3.5 0 0 1 7 0V28" fill="none" stroke="#f8fafc" stroke-width="3" stroke-linecap="round"/>
+  <path d="m32.5 33.4 2.2 2.2 4.7-5" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

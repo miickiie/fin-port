@@ -62,30 +62,30 @@ export const Dashboard: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <header className="mb-8">
-        <h2 className="text-3xl font-light tracking-tight mb-2">{t('portfolioOverview')}</h2>
-        <p className="text-slate-500 dark:text-slate-400">{t('portfolioOverviewDesc')}</p>
+      <header className="view-header">
+        <h2 className="view-title">{t('portfolioOverview')}</h2>
+        <p className="view-description">{t('portfolioOverviewDesc')}</p>
       </header>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
-          <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{t('totalTarget')}</p>
-          <p className="text-2xl font-semibold">฿{totalTarget.toLocaleString()}</p>
+        <div className="glass-panel">
+          <p className="metric-label">{t('totalTarget')}</p>
+          <p className="metric-value">฿{totalTarget.toLocaleString()}</p>
         </div>
-        <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
-          <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{t('totalInvested')}</p>
-          <p className="text-2xl font-semibold text-blue-600 dark:text-blue-400">฿{totalInvested.toLocaleString()}</p>
+        <div className="glass-panel">
+          <p className="metric-label">{t('totalInvested')}</p>
+          <p className="metric-value metric-value-accent">฿{totalInvested.toLocaleString()}</p>
         </div>
-        <div className="bg-blue-500/10 dark:bg-blue-500/20 backdrop-blur-2xl rounded-3xl p-6 border border-blue-200/50 dark:border-blue-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">{t('remainingToInvest')}</p>
-          <p className="text-2xl font-semibold">฿{remainingTotal.toLocaleString()}</p>
+        <div className="glass-panel glass-panel-accent">
+          <p className="metric-label metric-label-accent">{t('remainingToInvest')}</p>
+          <p className="metric-value">฿{remainingTotal.toLocaleString()}</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Allocation Chart */}
-        <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] flex flex-col items-center">
+        <div className="glass-panel flex flex-col items-center">
           <h3 className="text-lg font-medium self-start mb-4">{t('currentAllocation')}</h3>
           {allocationData.length > 0 ? (
             <div className="w-full h-64">
@@ -106,14 +106,14 @@ export const Dashboard: React.FC = () => {
                   </Pie>
                   <Tooltip 
                     formatter={(value: number) => `฿${value.toLocaleString()}`}
-                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: 'var(--fp-shadow-glass)' }}
                   />
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
             </div>
           ) : (
-            <div className="h-64 flex items-center justify-center text-slate-400">
+            <div className="h-64 flex items-center justify-center text-center text-slate-500 dark:text-slate-300">
               {t('noInvestmentsYet')}
             </div>
           )}
@@ -121,7 +121,7 @@ export const Dashboard: React.FC = () => {
 
         {/* Tax Unlocks & Progress */}
         <div className="space-y-6">
-          <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl p-6 border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
+          <div className="glass-panel">
             <h3 className="text-lg font-medium mb-4">{t('targetProgress')}</h3>
             <div className="space-y-4">
               {targets.map(target => {
@@ -133,10 +133,10 @@ export const Dashboard: React.FC = () => {
                       <span className="truncate">{target.name}</span>
                       <span className="text-slate-500 font-medium">{progress}%</span>
                     </div>
-                    <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div className="progress-track" aria-label={`${target.name} ${progress}%`}>
                       <div 
-                        className="h-full rounded-full transition-all duration-500"
-                        style={{ width: `${progress}%`, backgroundColor: CATEGORY_COLORS[target.category] }}
+                        className="progress-fill"
+                        style={{ transform: `scaleX(${progress / 100})`, backgroundColor: CATEGORY_COLORS[target.category] }}
                       />
                     </div>
                   </div>
@@ -145,12 +145,12 @@ export const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 dark:from-emerald-500/20 dark:to-teal-500/20 backdrop-blur-2xl rounded-3xl p-6 border border-emerald-200/50 dark:border-emerald-800/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          <div className="glass-panel unlock-panel">
             <h3 className="text-lg font-medium mb-4 text-emerald-800 dark:text-emerald-400">{t('upcomingTaxUnlocks')}</h3>
             {upcomingUnlocks.length > 0 ? (
               <div className="space-y-3">
                 {upcomingUnlocks.map((u, i) => (
-                  <div key={i} className="flex justify-between items-center bg-white/40 dark:bg-slate-900/40 backdrop-blur-md p-3 rounded-2xl border border-white/30 dark:border-slate-700/30 text-sm">
+                  <div key={i} className="glass-row flex justify-between items-center p-3 text-sm">
                     <div>
                       <p className="font-medium">{u.log.fundName}</p>
                       <p className="text-xs text-slate-500">{u.log.wrapperType}</p>

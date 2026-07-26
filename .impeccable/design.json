@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-10T07:56:26Z",
+  "title": "Design System: FinPort",
+  "extensions": {
+    "colorMeta": {
+      "primary-blue": {
+        "role": "primary",
+        "displayName": "Action Blue",
+        "canonical": "#2563eb",
+        "tonalRamp": [
+          "oklch(22% 0.10 260)",
+          "oklch(32% 0.13 260)",
+          "oklch(43% 0.16 260)",
+          "oklch(53% 0.19 260)",
+          "oklch(63% 0.20 260)",
+          "oklch(74% 0.14 260)",
+          "oklch(86% 0.08 260)",
+          "oklch(95% 0.03 260)"
+        ]
+      },
+      "unlock-emerald": {
+        "role": "secondary",
+        "displayName": "Unlock Emerald",
+        "canonical": "#10b981",
+        "tonalRamp": [
+          "oklch(20% 0.08 160)",
+          "oklch(31% 0.11 160)",
+          "oklch(42% 0.14 160)",
+          "oklch(53% 0.16 160)",
+          "oklch(64% 0.16 160)",
+          "oklch(75% 0.11 160)",
+          "oklch(87% 0.06 160)",
+          "oklch(95% 0.03 160)"
+        ]
+      },
+      "lock-amber": {
+        "role": "tertiary",
+        "displayName": "Lock Amber",
+        "canonical": "#f59e0b",
+        "tonalRamp": [
+          "oklch(22% 0.08 75)",
+          "oklch(34% 0.11 75)",
+          "oklch(46% 0.14 75)",
+          "oklch(58% 0.16 75)",
+          "oklch(70% 0.16 75)",
+          "oklch(80% 0.11 75)",
+          "oklch(89% 0.06 75)",
+          "oklch(96% 0.03 75)"
+        ]
+      },
+      "rmf-violet": {
+        "role": "category",
+        "displayName": "RMF Violet",
+        "canonical": "#8b5cf6",
+        "tonalRamp": [
+          "oklch(22% 0.10 300)",
+          "oklch(32% 0.14 300)",
+          "oklch(43% 0.17 300)",
+          "oklch(55% 0.20 300)",
+          "oklch(67% 0.17 300)",
+          "oklch(78% 0.12 300)",
+          "oklch(89% 0.06 300)",
+          "oklch(96% 0.03 300)"
+        ]
+      },
+      "slate-900": {
+        "role": "neutral",
+        "displayName": "Deep Slate",
+        "canonical": "#0f172a",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8",
+          "#f8fafc"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Glass White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "rgba(255,255,255,0.16)",
+          "rgba(255,255,255,0.24)",
+          "rgba(255,255,255,0.32)",
+          "rgba(255,255,255,0.40)",
+          "rgba(255,255,255,0.50)",
+          "rgba(255,255,255,0.64)",
+          "rgba(255,255,255,0.80)",
+          "#ffffff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles and high-level orientation only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Major money values and important summaries."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card headings, section titles, and fund names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Supporting copy, form values, and explanatory settings text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels, badges, small metric labels, and nav labels."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Mobile dock labels, compact helper text, and wrapper chips only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glass-ambient",
+        "value": "0 8px 30px rgb(0,0,0,0.04)",
+        "purpose": "Default low lift for glass panels in light mode."
+      },
+      {
+        "name": "dark-glass-ambient",
+        "value": "0 8px 30px rgb(0,0,0,0.1)",
+        "purpose": "Dark-mode companion separation for glass panels."
+      },
+      {
+        "name": "mobile-dock-lift",
+        "value": "0 -8px 32px 0 rgba(0,0,0,0.05)",
+        "purpose": "Bottom mobile navigation only."
+      },
+      {
+        "name": "chart-tooltip-lift",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+        "purpose": "Small floating chart tooltip lift."
+      }
+    ],
+    "motion": [
+      {
+        "name": "transition-state",
+        "value": "150-250ms color/background/focus transitions",
+        "purpose": "Default component state changes."
+      },
+      {
+        "name": "progress-fill",
+        "value": "500ms width transition",
+        "purpose": "Target allocation progress bars."
+      },
+      {
+        "name": "vibe-celebration",
+        "value": "720-980ms celebratory shake, flash, rays, and confetti with reduced-motion overrides",
+        "purpose": "Signature footer credit celebration only."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Use for save, sync, and primary form actions.",
+      "html": "<button class=\"ds-btn-primary\">Save investment log</button>",
+      "css": ".ds-btn-primary { background: #2563eb; color: #ffffff; border: 0; border-radius: 12px; padding: 12px 24px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 1rem; font-weight: 500; transition: background-color 160ms ease, box-shadow 160ms ease; } .ds-btn-primary:hover { background: #1d4ed8; } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,0.45); } .ds-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Neutral Action Button",
+      "kind": "button",
+      "refersTo": "button-neutral",
+      "description": "Use for target-saving actions where the task is important but not the global action blue.",
+      "html": "<button class=\"ds-btn-neutral\">Save targets</button>",
+      "css": ".ds-btn-neutral { background: #0f172a; color: #ffffff; border: 0; border-radius: 12px; padding: 12px 24px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 1rem; font-weight: 500; transition: background-color 160ms ease, box-shadow 160ms ease; } .ds-btn-neutral:hover { background: #1e293b; } .ds-btn-neutral:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,0.45); }"
+    },
+    {
+      "name": "Glass Panel",
+      "kind": "card",
+      "refersTo": "glass-card",
+      "description": "Default FinPort panel material for dashboard summaries, forms, and settings sections.",
+      "html": "<section class=\"ds-glass-panel\"><h3>Target progress</h3><p>Allocation data stays calm inside a soft translucent surface.</p></section>",
+      "css": ".ds-glass-panel { background: rgba(255,255,255,0.4); color: #0f172a; border: 1px solid rgba(255,255,255,0.6); border-radius: 24px; padding: 24px; box-shadow: 0 8px 30px rgb(0,0,0,0.04); backdrop-filter: blur(40px); font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-glass-panel h3 { margin: 0 0 16px; font-family: Space Grotesk, ui-sans-serif, system-ui, sans-serif; font-size: 1.125rem; font-weight: 500; } .ds-glass-panel p { margin: 0; color: #64748b; line-height: 1.5; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Default input, select, and textarea treatment.",
+      "html": "<label class=\"ds-field\"><span>Fund or asset name</span><input placeholder=\"K-CHANGE-A\" /></label>",
+      "css": ".ds-field { display: grid; gap: 8px; color: #334155; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; } .ds-field input { background: rgba(255,255,255,0.5); color: #0f172a; border: 1px solid rgba(255,255,255,0.5); border-radius: 12px; padding: 10px 16px; font: inherit; font-weight: 400; transition: background-color 160ms ease, box-shadow 160ms ease; } .ds-field input:focus { outline: none; background: rgba(255,255,255,0.8); box-shadow: 0 0 0 3px rgba(59,130,246,0.45); } .ds-field input::placeholder { color: #94a3b8; }"
+    },
+    {
+      "name": "Sidebar Nav Item",
+      "kind": "nav",
+      "refersTo": "nav-active",
+      "description": "Desktop navigation row with icon, label, and soft active state.",
+      "html": "<button class=\"ds-nav-item ds-nav-item-active\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 13h8V3H3v10Zm0 8h8v-6H3v6Zm10 0h8V11h-8v10Zm0-18v6h8V3h-8Z\" /></svg><span>Dashboard</span></button>",
+      "css": ".ds-nav-item { width: 100%; display: inline-flex; align-items: center; gap: 12px; border: 0; border-radius: 12px; padding: 12px 16px; background: transparent; color: #475569; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 1rem; font-weight: 400; transition: background-color 160ms ease, color 160ms ease; } .ds-nav-item svg { width: 20px; height: 20px; fill: currentColor; } .ds-nav-item:hover { background: #f1f5f9; color: #0f172a; } .ds-nav-item-active { background: rgba(59,130,246,0.1); color: #2563eb; font-weight: 500; } .ds-nav-item:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,0.45); }"
+    },
+    {
+      "name": "Wrapper Chip",
+      "kind": "chip",
+      "refersTo": "chip-wrapper",
+      "description": "Compact wrapper label for RMF, ThaiESG, Normal, Cash, or Gold holdings.",
+      "html": "<span class=\"ds-chip-wrapper\">ThaiESG</span>",
+      "css": ".ds-chip-wrapper { display: inline-flex; align-items: center; border-radius: 4px; background: #f1f5f9; color: #475569; padding: 2px 8px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; line-height: 1.25rem; }"
+    },
+    {
+      "name": "Progress Bar",
+      "kind": "custom",
+      "refersTo": "category-progress",
+      "description": "Target allocation progress row using semantic category color.",
+      "html": "<div class=\"ds-progress\"><div class=\"ds-progress-label\"><span>ThaiESG Equity</span><strong>42%</strong></div><div class=\"ds-progress-track\"><span style=\"width: 42%; background: #10b981\"></span></div></div>",
+      "css": ".ds-progress { display: grid; gap: 4px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-progress-label { display: flex; justify-content: space-between; gap: 16px; font-size: 0.875rem; color: #0f172a; } .ds-progress-label strong { color: #64748b; font-weight: 500; } .ds-progress-track { height: 8px; overflow: hidden; border-radius: 9999px; background: #f1f5f9; } .ds-progress-track span { display: block; height: 100%; border-radius: 9999px; transition: width 500ms ease; }"
+    },
+    {
+      "name": "Vibe Credit",
+      "kind": "button",
+      "refersTo": "vibe-credit",
+      "description": "Small affectionate footer action that triggers the personal celebration effect.",
+      "html": "<button class=\"ds-vibe-credit\">Vibe with love by Miickiie</button>",
+      "css": ".ds-vibe-credit { min-height: 36px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9999px; background: transparent; color: #64748b; padding: 0 12px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; transition: color 160ms ease, box-shadow 160ms ease; } .ds-vibe-credit:hover { color: #2563eb; } .ds-vibe-credit:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,0.45); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Playful Wealth Console",
+    "overview": "FinPort is a private, local-first portfolio console that should feel light enough for personal maintenance and precise enough for real money decisions. The interface is playful but numerically calm: it can use soft gradients, rounded panels, and small celebratory touches, but the numbers, categories, and advisory tax-wrapper timing always stay legible and sober.\n\nThe visual system is a restrained product UI with a signature layer of translucent glass. Use that glass as a soft personal-dashboard material for primary panels, navigation chrome, and the occasional highlighted module. Do not let it become decoration for its own sake; FinPort is not a corporate banking dashboard, and it is not a crypto/trading terminal.",
+    "keyCharacteristics": [
+      "Local-first and private, with browser-storage confidence visible in settings and backup flows.",
+      "Soft glass panels over blue, emerald, and violet ambient gradients.",
+      "Blue is the action and selection color; category color is reserved for allocation meaning.",
+      "Rounded, friendly controls with practical product density.",
+      "Playful moments are allowed when they mark completion or affection, never when they compete with portfolio data."
+    ],
+    "rules": [
+      {
+        "name": "The Blue Does Work Rule",
+        "body": "Blue is for selection, action, focus, and key totals. Do not spend it on decorative flourishes.",
+        "section": "colors"
+      },
+      {
+        "name": "The Category Means Category Rule",
+        "body": "Violet, emerald, amber, gold, and slate category colors are semantic allocation colors. They should not be reassigned to unrelated UI states.",
+        "section": "colors"
+      },
+      {
+        "name": "The Data First Type Rule",
+        "body": "Use display typography for page orientation only. Fund names, amounts, labels, and settings must stay in practical product sizes.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sparse Glass Rule",
+        "body": "Glass is a FinPort signature, not a universal answer. Use it for structural panels and chrome; avoid nested glass unless the child is a compact status row inside a single parent module.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the \"Playful Wealth Console\" balance: friendly surfaces, clear numbers, and calm financial hierarchy.",
+      "Do use Action Blue for real work: primary actions, focus rings, active nav, and highlighted current values.",
+      "Do keep RMF/ThaiESG unlock messaging advisory and visually distinct from definitive financial advice.",
+      "Do reuse 24px glass panels, 12px inputs/buttons, and 16px compact rows so the app feels coherent.",
+      "Do keep English and Thai labels readable inside their controls before adding more ornament."
+    ],
+    "donts": [
+      "Don't make FinPort look or feel like a corporate banking dashboard.",
+      "Don't make FinPort look or feel like a crypto/trading terminal.",
+      "Don't turn category colors into decoration; they encode allocation meaning.",
+      "Don't stack glass cards inside glass cards except for compact status rows that need grouping.",
+      "Don't add high-drama motion to data surfaces. The vibe effect is a signature moment, not the default behavior."
+    ]
+  }
+}
