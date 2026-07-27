@@ -842,3 +842,19 @@ body {
     animation-duration: 1ms;
   }
 }
+
+
+input[type="date"].field-control {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 0 !important;
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+input.field-control {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+}

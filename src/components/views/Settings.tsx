@@ -90,7 +90,7 @@ export const Settings: React.FC<SettingsProps> = ({ onVibe }) => {
         {/* Personal Details */}
         <section className="glass-panel">
           <h3 className="text-lg font-medium mb-4">{t('personalDetails')}</h3>
-          <div className="space-y-2">
+          <div className="space-y-2 min-w-0">
             <label className="field-label">{t('dateOfBirth')}</label>
             <p className="field-help">{t('dobRequiredForRmf')}</p>
             <input 
@@ -106,7 +106,7 @@ export const Settings: React.FC<SettingsProps> = ({ onVibe }) => {
         <section className="glass-panel">
           <h3 className="text-lg font-medium mb-4">{t('appearance')}</h3>
           <div className="space-y-4">
-            <div className="space-y-2">
+            <div className="space-y-2 min-w-0">
               <label className="field-label">{t('theme')}</label>
               <select 
                 value={settings.theme}
@@ -118,8 +118,8 @@ export const Settings: React.FC<SettingsProps> = ({ onVibe }) => {
                 <option value="system">{t('systemDefault')}</option>
               </select>
             </div>
-            
-            <div className="space-y-2">
+
+            <div className="space-y-2 min-w-0">
               <label className="field-label">{t('language')}</label>
               <select 
                 value={settings.language || 'en'}
@@ -137,8 +137,8 @@ export const Settings: React.FC<SettingsProps> = ({ onVibe }) => {
         <section className="glass-panel">
           <h3 className="text-lg font-medium mb-4">{t('backupSync')}</h3>
           <div className="space-y-4">
-            
-            <div className="space-y-2">
+
+            <div className="space-y-2 min-w-0">
               <label className="field-label">{t('gasWebhookUrl')}</label>
               
               {!settings.gasSyncUrl ? (
