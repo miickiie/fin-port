@@ -12,8 +12,7 @@
     </filter>
   </defs>
 
-  <rect width="64" height="64" rx="16" fill="#0f172a"/>
-  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#tile)"/>
+  <rect width="64" height="64" rx="16" fill="url(#tile)"/>
   <path d="M14 47V20c0-3.3 2.7-6 6-6h27" fill="none" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
 
   <g filter="url(#soft-shadow)">
